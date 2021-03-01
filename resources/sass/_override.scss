@@ -1,0 +1,69 @@
+$primary: #f28a02;
+$primary-darker: rgb(202,98,2);
+$primary-lighter: rgb(255,178, 42);
+$primary-form-outline: rgb(202, 98, 2, 0.25);
+
+.bg-primary-light {
+  background-color: $primary-lighter;
+}
+
+.bg-custom-primary {
+  background-color: $primary-darker;
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary-darker;
+}
+
+.btn-primary:hover{
+  background-color: $primary-darker;
+}
+
+.btn-primary:focus {
+  background-color: $primary-darker;
+}
+
+.btn-outline-primary {
+  color: $primary;
+  border-color: $primary-darker;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem $primary-form-outline;
+}
+
+.btn-outline-primary:hover {
+  background-color: $primary;
+}
+
+.btn-link {
+  color: $primary;
+}
+
+.btn-link:hover {
+  color: $primary-darker;
+}
+
+//.nav-link.child.active {
+//  color: $primary-lighter !important;
+//  background: #6c757d !important;
+//}
+//
+//.nav-link.child.active .nav-icon {
+//  color: $primary-lighter !important;
+//}
+//
+//.sidebar .nav-link:hover {
+//  background: $primary;
+//}
+
+.btn-ghost-info:hover {
+  color: #23282c;
+  background-color: $primary;
+  border-color: $primary-darker;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
