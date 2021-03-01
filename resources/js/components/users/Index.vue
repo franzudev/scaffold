@@ -6,6 +6,7 @@
     :edit-entity="editUser"
     entity-name="users"
     entity-new-button="Nuovo Utente"
+    :persist-search="false"
     :retrieve-entity="getEntity"
   >
     <!--    for excel export-->
@@ -75,8 +76,6 @@ export default class UsersIndex extends Vue {
 
     public getEntity(filters: Filter) {
         this.users = []
-
-        localStorage.setItem('filtersTableUsers', JSON.stringify(filters));
 
         return Users.list(filters)
             .then((response: AxiosResponse) => {

@@ -20,12 +20,6 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             ProfileTableSeeder::class,
             DashboardTableSeeder::class,
- 			CategoriesTableSeeder::class,
- 			ProductFamiliesTableSeeder::class,
- 			ProductsTableSeeder::class,
- 			RelatedProductsTableSeeder::class,
- 			RealizationsTableSeeder::class,
- 			ProductPhotosTableSeeder::class
  			// new seeder
         ]);
         $admin = Role::findByName('admin');

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca56c802ba9bbeb8caa81ca8704264e2",
+    "content-hash": "4f8f6925a923a4ff730b60e48290b6a1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -693,6 +693,61 @@
                 }
             ],
             "time": "2020-10-22T13:57:20+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
+                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^2.9.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "support": {
+                "issues": "https://github.com/fzaninotto/Faker/issues",
+                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
+            },
+            "abandoned": true,
+            "time": "2020-12-11T09:56:16+00:00"
         },
         {
             "name": "geo-io/interface",
@@ -6837,6 +6892,73 @@
             "time": "2021-01-24T12:00:00+00:00"
         },
         {
+            "name": "franzudev/generator-resources",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/Users/franzu/Programming/laravel_packages/generator-resources",
+                "reference": "4b6003e106beed0f9539b7fc949ffe1d485312dc"
+            },
+            "require": {
+                "illuminate/console": "^8.0",
+                "illuminate/contracts": "^8.0",
+                "illuminate/routing": "^8.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Franzudev\\GeneratorResources\\GeneratorResourcesServiceProvider"
+                    ],
+                    "aliases": {
+                        "GeneratorResources": "Franzudev\\GeneratorResources\\GeneratorResourcesFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Franzudev\\GeneratorResources\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Franzudev\\GeneratorResources\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Federico Francois",
+                    "email": "fede.franzu@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "homepage": "https://github.com/franzudev/generator-resources",
+            "keywords": [
+                "franzudev",
+                "generator-resources"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "hamcrest/hamcrest-php",
             "version": "v2.0.1",
             "source": {
@@ -9172,7 +9294,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "franzudev/generator-resources": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

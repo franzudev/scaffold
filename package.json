@@ -39,6 +39,8 @@
     "devDependencies": {
         "@types/googlemaps": "^3.40.0",
         "@typescript-eslint/parser": "^4.0.1",
+        "@vuedoc/md": "^3.2.0",
+        "@vuedoc/parser": "^3.3.0",
         "axios": "^0.20.0",
         "bootstrap": "^4.5.2",
         "browser-sync": "^2.26.12",

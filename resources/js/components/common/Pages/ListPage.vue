@@ -76,6 +76,7 @@ export default class ListPage extends mixins(Filter) {
     @Prop({ required: true }) editEntity!: Function
     @Prop({ default: () => [] }) excelHeader!: string[]
     @Prop({ default: () => null }) excelData!: Function
+    @Prop({ default: () => false }) persistSearch!: boolean
 
     public get capitalizedEntity() {
         return this.entityName.charAt(0).toUpperCase() + this.entityName.slice(1)
@@ -99,6 +100,9 @@ export default class ListPage extends mixins(Filter) {
 
     public getEntity() {
         this.loading = true
+
+        if (this.persistSearch)
+          localStorage.setItem(this.filtersKey, JSON.stringify(this.filters));
 
         return this.retrieveEntity(this.filters)
             .then((pagination: any) => {

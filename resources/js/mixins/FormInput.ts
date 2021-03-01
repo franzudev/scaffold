@@ -19,18 +19,12 @@ export default class FormInputMixin extends Vue{
     // public options: any[] = []
     public label: string = 'name'
     public track_by: string = 'id'
+    public multiOpenDirection: string = 'bottom'
+    public multiPlaceHolder: string = 'Scegli opzione'
     public api: any = null
     public multiple: any = false
     public configImage: any = null
     public size: number = 0
-
-    get key() {
-        return this.$vnode.key
-    }
-
-    get customSize() {
-        return this.size ? `col-${this.size}` : 'col-12'
-    }
 
     public created () {
         for (const [key, value] of Object.entries(this.config)) {
@@ -41,4 +35,13 @@ export default class FormInputMixin extends Vue{
             }
         }
     }
+
+    get key() {
+        return this.$vnode.key
+    }
+
+    get customSize() {
+        return this.size ? `col-sm-12 col-lg-${this.size}` : 'col-12'
+    }
+
 }

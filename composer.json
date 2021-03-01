@@ -11,6 +11,7 @@
         "php": "^7.3",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
+        "fzaninotto/faker": "^1.9",
         "grimzy/laravel-mysql-spatial": "^5.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/fortify": "^1.5",
@@ -71,7 +72,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "/Users/franzu/laravel_packages/generator-resources"
+            "url": "/Users/franzu/Programming/laravel_packages/generator-resources"
         }
     ]
 }

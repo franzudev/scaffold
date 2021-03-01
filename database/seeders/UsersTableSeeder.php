@@ -7,8 +7,6 @@ use Avatar;
 use DB;
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Storage;
 
 class UsersTableSeeder extends Seeder

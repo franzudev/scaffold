@@ -78,39 +78,46 @@ export default class Create extends Vue {
                 type: 'text',
                 slot: 'username',
                 required: true,
-                readonly: !this.isNew
+                readonly: !this.isNew,
+                size: 12
             },
             "Nome": {
                 type: 'text',
                 slot: 'name',
                 required: true,
+                size: 6,
             },
             "Cognome": {
                 type: 'text',
                 slot: 'surname',
                 required: true,
+                size: 6,
             },
             "Email": {
                 type: 'email',
                 slot: 'email',
                 required: true,
+                size: 6,
             },
             "Data di Nascita": {
                 type: 'date',
                 slot: 'birth_date',
                 required: true,
+                size: 6,
             },
             "Password": {
                 type: 'password',
                 slot: 'password',
                 show: this.isNew,
                 required: true,
+                size: 6
             },
             "Conferma Password": {
                 type: 'password',
                 slot: 'password_confirmation',
                 show: this.isNew,
                 required: true,
+                size: 6
             },
             "Telefono": {
                 type: 'tel',
@@ -126,7 +133,9 @@ export default class Create extends Vue {
                 type: 'multiselect',
                 slot: 'roles',
                 required: true,
-                options: this.roles,
+                api: Roles,
+                multiOpenDirection: 'top',
+                multiPlaceHolder: 'Scegli ruoli',
                 label: 'display_name',
                 track_by: 'id'
             }
