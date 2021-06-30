@@ -134,6 +134,7 @@ export default class Create extends Vue {
                 slot: 'roles',
                 required: true,
                 api: Roles,
+                multiple: true,
                 multiOpenDirection: 'top',
                 multiPlaceHolder: 'Scegli ruoli',
                 label: 'display_name',

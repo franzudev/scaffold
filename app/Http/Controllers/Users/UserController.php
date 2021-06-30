@@ -34,7 +34,7 @@ class UserController extends Controller
             $query,
             $request->search,
             ['username', 'email'],
-            ['LIKE', 'LIKE', 'LIKE'],
+            ['LIKE', 'LIKE'],
             [],
             [[]]
         );
