@@ -8,6 +8,7 @@
     <table-body
       :entities="entities"
       :columns="columns"
+      :loading="loading"
       :sort="sort"
       :edit-entity="editEntity"
     />

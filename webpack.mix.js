@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix');
 const config = require('./webpack.config');
 
 /*
@@ -12,12 +12,13 @@ const config = require('./webpack.config');
  |
  */
 /* === CONTROL PANEL === */
-mix.copyDirectory('resources/icons', 'public/icon')
+mix
+    // .copyDirectory('resources/icons', 'public/icon')
     .copyDirectory('resources/css', 'public/css')
-    .copyDirectory('resources/images', 'public/images')
+    // .copyDirectory('resources/images', 'public/images')
     .copyDirectory('resources/fonts', 'public/fonts')
     .copyDirectory('resources/jjs', 'public/js')
-    .ts('resources/js/app.ts', 'public/js')
+    .ts('resources/js/app.ts', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
     .webpackConfig(config)
     .browserSync({

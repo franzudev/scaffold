@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <slot name="header"></slot>
+    <slot name="header"/>
     <div class="card-body px-0">
       <search-header
         :filters="filters"
@@ -39,9 +39,6 @@
         :entity-url="`/${entityName}/create`"
         :button-text="entityNewButton"
       />
-      <content-placeholders v-if="loading">
-        <content-placeholders-text />
-      </content-placeholders>
     </div>
   </div>
 </template>

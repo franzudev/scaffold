@@ -8,10 +8,10 @@
     entity-new-button="Nuovo Utente"
     :persist-search="false"
     :retrieve-entity="getEntity"
+    :excel-data="excelDataFilter"
+    :excel-header="excelHeader"
   >
     <!--    for excel export-->
-    <!--    :excel-data="excelDataFilter"-->
-    <!--    :excel-header="excelHeader"-->
     <template #header>
       <page-header
         title="Utenti"
@@ -62,7 +62,7 @@ export default class UsersIndex extends Vue {
         return [
             u.username,
             u.email,
-            u.created_at
+            (this as any).$moment(u.created_at).format("LL")
         ]
     }
 

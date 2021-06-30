@@ -1,5 +1,5 @@
 <template>
-  <tbody>
+  <tbody v-if="!loading">
     <table-row
       v-for="(entity) in entities"
       :key="entity.id"
@@ -15,6 +15,9 @@
       </template>
     </table-row>
   </tbody>
+  <content-placeholders v-else>
+    <content-placeholders-text />
+  </content-placeholders>
 </template>
 
 <script lang="ts">
@@ -31,5 +34,6 @@ export default class TableBody extends Vue {
     @Prop({ required: true }) columns!: Object[]
     @Prop({ required: true }) editEntity!: Function
     @Prop({ required: true }) sort?: Function
+    @Prop({ required: true }) loading!: boolean
 }
 </script>
