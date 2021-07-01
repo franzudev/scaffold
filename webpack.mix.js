@@ -12,15 +12,12 @@ const config = require('./webpack.config');
  |
  */
 /* === CONTROL PANEL === */
-mix
-    // .copyDirectory('resources/icons', 'public/icon')
+mix.webpackConfig(config)
     .copyDirectory('resources/css', 'public/css')
-    // .copyDirectory('resources/images', 'public/images')
     .copyDirectory('resources/fonts', 'public/fonts')
     .copyDirectory('resources/jjs', 'public/js')
     .ts('resources/js/app.ts', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
-    .webpackConfig(config)
     .browserSync({
         ui: false,
         proxy: {

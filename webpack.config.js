@@ -14,7 +14,9 @@ module.exports = {
   },
   resolve: {
     plugins: [
-        new TsconfigPathsPlugin({configFile: 'tsconfig.json'})
+        new TsconfigPathsPlugin({
+          configFile: 'tsconfig.json'
+        })
     ],
     alias: {
       $components: path.resolve(__dirname, "resources/js/components"),
