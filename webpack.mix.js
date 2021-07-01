@@ -1,5 +1,6 @@
 let mix = require('laravel-mix');
 const config = require('./webpack.config');
+require('laravel-mix-workbox');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,14 +19,42 @@ mix.webpackConfig(config)
     .copyDirectory('resources/jjs', 'public/js')
     .ts('resources/js/app.ts', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
-    .browserSync({
+    /*.browserSync({
         ui: false,
         proxy: {
             target: process.env.MIX_APP_URL
         },
         ignore: ['app'],
+        https: true,
         notify: false,
         port: 3030
+    })*/
+    .generateSW({
+        // Do not precache images
+        exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+
+        maximumFileSizeToCacheInBytes: 5000000,
+
+        // Define runtime caching rules.
+        runtimeCaching: [{
+            // Match any request that ends with .png, .jpg, .jpeg or .svg.
+            urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+            // Apply a cache-first strategy.
+            handler: 'CacheFirst',
+
+            options: {
+                // Use a custom cache name.
+                cacheName: 'images',
+
+                // Only cache 10 images.
+                expiration: {
+                    maxEntries: 10,
+                },
+            },
+        }],
+
+        skipWaiting: true
     });
 
 mix.disableNotifications();
