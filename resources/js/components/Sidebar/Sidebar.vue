@@ -1,5 +1,9 @@
 <template>
-  <button class="sidebar-minimizer brand-minimizer" type="button" @click="toggleStorage"></button>
+  <button
+    class="sidebar-minimizer brand-minimizer"
+    type="button"
+    @click="toggleStorage"
+  />
 </template>
 
 <script>

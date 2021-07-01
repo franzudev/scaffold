@@ -43,17 +43,30 @@
     </script>
 
     <script>
-    if ('serviceWorker' in navigator ) {
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                // Registration was successful
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+    /*if ('serviceWorker' in navigator ) {
       window.addEventListener('load', function() {
-        /*navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          // Registration was successful
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          // Registration was successful
         }, function(err) {
           // registration failed :(
           console.log('ServiceWorker registration failed: ', err);
-        });*/
+        });
       });
-    }
+    }*/
     </script>
 
     <!-- Fonts -->

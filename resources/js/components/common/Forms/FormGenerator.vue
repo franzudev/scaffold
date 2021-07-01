@@ -1,6 +1,6 @@
 <template>
   <div class="card-body px-0">
-    <div class="row">
+    <form class="row">
       <template
         v-for="(val, key) in userInputs"
       >
@@ -69,7 +69,7 @@
         />
       </template>
       <slot></slot>
-    </div>
+    </form>
   </div>
 </template>
 
