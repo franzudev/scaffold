@@ -15,9 +15,15 @@
       </template>
     </table-row>
   </tbody>
-  <content-placeholders v-else>
-    <content-placeholders-text />
-  </content-placeholders>
+  <tbody v-else>
+    <tr>
+      <td colspan="5">
+        <content-placeholders>
+          <content-placeholders-text />
+        </content-placeholders>
+      </td>
+    </tr>
+  </tbody>
 </template>
 
 <script lang="ts">
