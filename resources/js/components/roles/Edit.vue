@@ -124,7 +124,7 @@
             <a
               class="card-header-action btn-minimize"
               href="#"
-              data-toggle="collapse"
+              data-bs-toggle="collapse"
               data-target="#collapsePermissions"
               aria-expanded="true"
             >
@@ -190,7 +190,7 @@
             <a
               class="card-header-action btn-minimize"
               href="#"
-              data-toggle="collapse"
+              data-bs-toggle="collapse"
               data-target="#collapseUsers"
               aria-expanded="true"
             >
