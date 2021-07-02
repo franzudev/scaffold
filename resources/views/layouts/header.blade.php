@@ -3,8 +3,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="{{ url('/') }}">
-        <img class="navbar-brand-full" src="/images/logo.png" height="35" alt="Modulr Logo">
-        <img class="navbar-brand-minimized" src="/images/logo.png" width="30" height="30" alt="Modulr Logo">
+        <img class="navbar-brand-full" src="/images/logo.png" height="35" alt="{{ env("APP_NAME") }} Logo">
+        <img class="navbar-brand-minimized" src="/images/logo.png" width="30" height="30" alt="{{ env("APP_NAME") }} Logo">
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
     <ul class="nav navbar-nav ml-auto mr-3">
         <li class="nav-item dropdown">
             <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <img class="img-avatar" src="{{Auth::user()->image_url}}">
+                <img class="img-avatar" src="{{Auth::user()->image_url}}" alt="user avatar">
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow mt-2">
                 <a class="dropdown-item">

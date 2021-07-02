@@ -56,28 +56,18 @@
             });
         });
     }
-    /*if ('serviceWorker' in navigator ) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          // Registration was successful
-        }, function(err) {
-          // registration failed :(
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }*/
     </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="prefetch" href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+{{--    <link href="{{ mix('css/app.css') }}" rel="stylesheet" media="all">--}}
+    <link rel="preload" href="{{ mix('css/app.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 @role('admin')
-<body class="app header-fixed sidebar-fixed sidebar-sm-show">
+<body class="app header-fixed sidebar-fixed sidebar-lg-show">
 @endrole
 {{-- TODO sidebar--}}
 @role('user')

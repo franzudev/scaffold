@@ -45,3 +45,5 @@ export default class SearchHeader extends Vue {
   @Prop({default:false}) excelSupport!: Boolean
 }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

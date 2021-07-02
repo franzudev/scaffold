@@ -1,6 +1,7 @@
 let mix = require('laravel-mix');
 const config = require('./webpack.config');
 require('laravel-mix-workbox');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -16,9 +17,16 @@ require('laravel-mix-workbox');
 mix.webpackConfig(config)
     .copyDirectory('resources/css', 'public/css')
     .copyDirectory('resources/fonts', 'public/fonts')
-    .copyDirectory('resources/jjs', 'public/js')
-    .ts('resources/js/app.ts', 'public/js').vue()
+    // .copyDirectory('resources/jjs', 'public/js')
+    .ts('resources/js/app.ts', 'public/js').vue({
+    options: {
+        productionMode: true
+    }
+    })
     .sass('resources/sass/app.scss', 'public/css')
+    // .purgeCss({
+    //     enabled: true
+    // })
     /*.browserSync({
         ui: false,
         proxy: {

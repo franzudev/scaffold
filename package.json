@@ -50,6 +50,7 @@
         "eslint-plugin-vue": "^7.0.0-beta.3",
         "jquery": "^3.5.1",
         "laravel-mix": "^6.0.25",
+        "laravel-mix-purgecss": "^6.0.0",
         "laravel-mix-workbox": "^0.1.4",
         "lodash": "^4.17.19",
         "popper.js": "^1.16.1",

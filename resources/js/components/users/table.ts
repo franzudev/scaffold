@@ -4,6 +4,7 @@ export default [
   {
     name: 'Id',
     dbName: 'id',
+    class: "d-none d-md-table-cell",
     type: '',
     orderable: true
   },
@@ -16,12 +17,14 @@ export default [
   {
     name: 'Ruoli',
     dbName: 'roles.name',
+    class: "d-none d-md-table-cell",
     type: 'array',
     orderable: false
   },
   {
     name: 'Registrato il',
     dbName: 'created_at',
+    class: "d-none d-md-table-cell",
     type: 'date',
     orderable: true,
   },

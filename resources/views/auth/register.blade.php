@@ -7,12 +7,12 @@
             <div class="brand-card-header">
                 @env('local')
                     <a href="{{ route('homepage') }}">
-                        <img src="{{ asset('images/Logo.png') }}" alt="">
+                        <img src="{{ asset('images/Logo.png') }}" alt="{{ env("APP_NAME") }} logo">
                     </a>
                 @endenv
                 @env('production')
                     <a href="{{ route('homepage') }}">
-                        <img src="{{ secure_asset('images/Logo.png') }}" alt="">
+                        <img src="{{ secure_asset('images/Logo.png') }}" alt="{{ env("APP_NAME") }} logo">
                     </a>
                 @endenv
             </div>
