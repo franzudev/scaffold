@@ -6,7 +6,7 @@
     :edit-entity="editUser"
     entity-name="users"
     entity-new-button="Nuovo Utente"
-    :persist-search="false"
+    :persist-search="true"
     :retrieve-entity="getEntity"
     :excel-data="excelDataFilter"
     :excel-header="excelHeader"
@@ -32,8 +32,8 @@ import { Component, Vue } from 'vue-property-decorator'
 import Users from "$api/Users"
 import userTable from "$components/users/table"
 import { AxiosResponse } from "axios";
-import ListPage from "$components/common/Pages/ListPage.vue";
-import PageHeader from "$components/common/Pages/PageHeader.vue";
+const ListPage = () => import(/* webpackPrefetch: true */ "$components/common/Pages/ListPage.vue")
+const PageHeader = () => import(/* webpackPrefetch: true */ "$components/common/Pages/PageHeader.vue");
 import Filter from '$types/Filter';
 import { emitter } from "../../services/EventBus";
 import User from "$types/entities/User";

@@ -79,10 +79,10 @@ import FormMultiselect from "$common/Forms/components/FormMultiselect.vue";
 import FormRadio from "$common/Forms/components/FormRadio";
 import FormCheckbox from "$common/Forms/components/FormCheckbox.vue";
 import FormImage from "$common/Forms/components/FormImage.vue";
-import FormLocationPicker from "$common/Forms/components/FormLocationPicker.vue";
-import LocationPicker from "$common/LocationPicker/LocationPicker.vue";
+const FormLocationPicker = () => import("$common/Forms/components/FormLocationPicker.vue");
+const LocationPicker = () => import("$common/LocationPicker/LocationPicker.vue");
 import FormInput from "$common/Forms/components/FormInput.vue";
-import FormEditor from "$common/Forms/components/FormEditor.vue";
+const FormEditor = () => import("$common/Forms/components/FormEditor.vue");
 import FormDownload from "$common/Forms/components/FormDownload.vue";
 
 @Component({

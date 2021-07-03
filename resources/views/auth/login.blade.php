@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body p-5">
                 <div class="text-center">
-                    <img src="images/logo.png" class="mb-5" width="150" alt="Modulr Logo">
+                    <img src="images/logo.png" class="mb-5" width="150" alt="{{ env("APP_NAME") }} logo">
                 </div>
                 <h1>{{ __('Accedi') }}</h1>
                 <p class="text-muted">Accedi al tuo account</p>

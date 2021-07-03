@@ -123,10 +123,10 @@
             </div>
             <a
               class="card-header-action btn-minimize"
-              href="#"
+              href="#collapsePermissions"
               data-bs-toggle="collapse"
-              data-target="#collapsePermissions"
-              aria-expanded="true"
+              aria-expanded="false"
+              role="button"
             >
               <i class="icon-arrow-up" />
             </a>
@@ -189,10 +189,11 @@
             <small class="text-muted mr-1 d-sm-down-none">{{ role.users.length }}</small>
             <a
               class="card-header-action btn-minimize"
-              href="#"
+              href="#collapseUsers"
               data-bs-toggle="collapse"
-              data-target="#collapseUsers"
-              aria-expanded="true"
+              aria-expanded="false"
+              role="button"
+              aria-controls="collapseUsers"
             >
               <i class="icon-arrow-up" />
             </a>

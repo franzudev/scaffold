@@ -1,6 +1,6 @@
 
 (<any>window)._ = require('lodash');
-(<any>window).Popper = require('popper.js').default;
+// (<any>window).Popper = require('popper.js').default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -9,7 +9,7 @@
  */
 
 try {
-    (<any>window).$ = (<any>window).jQuery = require('jquery');
+    // (<any>window).$ = (<any>window).jQuery = require('jquery');
 
     require('bootstrap');
     require('@coreui/coreui');

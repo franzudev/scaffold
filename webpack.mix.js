@@ -1,6 +1,8 @@
 let mix = require('laravel-mix');
 const config = require('./webpack.config');
 require('laravel-mix-workbox');
+require('laravel-mix-purgecss');
+require('laravel-mix-bundle-analyzer');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,11 +16,14 @@ require('laravel-mix-workbox');
  */
 /* === CONTROL PANEL === */
 mix.webpackConfig(config)
-    .copyDirectory('resources/css', 'public/css')
+    // .copyDirectory('resources/css', 'public/css')
     .copyDirectory('resources/fonts', 'public/fonts')
-    .copyDirectory('resources/jjs', 'public/js')
+    // .copyDirectory('resources/jjs', 'public/js')
     .ts('resources/js/app.ts', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
+    // .purgeCss({
+    //     enabled: true
+    // })
     /*.browserSync({
         ui: false,
         proxy: {
@@ -29,7 +34,18 @@ mix.webpackConfig(config)
         notify: false,
         port: 3030
     })*/
-    .generateSW({
+
+mix.disableNotifications();
+
+// if (!mix.inProduction()) {
+//     mix.bundleAnalyzer({
+//         generateStatsFile: true
+//     });
+// }
+
+if (mix.inProduction()) {
+    mix.version()
+        .generateSW({
         // Do not precache images
         exclude: [/\.(?:png|jpg|jpeg|svg)$/],
 
@@ -56,10 +72,4 @@ mix.webpackConfig(config)
 
         skipWaiting: true
     });
-
-mix.disableNotifications();
-
-
-if (mix.inProduction()) {
-    mix.version();
 }

@@ -2,7 +2,6 @@
   <a
     v-if="column.orderable"
     href="#"
-    class="text-dark"
     @click.prevent="sort(column.dbName)"
   >
     {{ column.name.charAt(0).toUpperCase() + column.name.slice(1) }}

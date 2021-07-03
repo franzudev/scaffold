@@ -8,6 +8,7 @@
       <img
         class="img-avatar"
         :src="entity.image_url"
+        alt="avatar"
       >
     </div>
     <div

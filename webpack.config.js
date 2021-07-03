@@ -1,7 +1,12 @@
 const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+const ASSET_PATH = process.env.MIX_APP_URL + '/';
+
 module.exports = {
+  output: {
+    publicPath: ASSET_PATH
+  },
   module: {
     rules: [
       {
@@ -26,6 +31,6 @@ module.exports = {
       $api: path.resolve(__dirname, "resources/js/services/api/endpoints"),
       $types: path.resolve(__dirname, "resources/js/@types"),
     },
-    extensions: ["*", ".js", ".jsx", ".vue", ".ts", ".tsx"]
+    extensions: ["*", ".js", ".jsx", ".vue", ".ts", ".tsx"],
   }
 }
