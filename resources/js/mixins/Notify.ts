@@ -10,7 +10,7 @@ export default class Notify extends Vue{
     showConfirmButton: false,
     timer: 3000,
     timerProgressBar: true,
-    onOpen: (toast: HTMLElement) => {
+    didOpen: (toast: HTMLElement) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }

@@ -82,7 +82,7 @@ export default class Create extends Vue {
                 size: 12
             },
             "Nome": {
-                type: 'editor',
+                type: 'text',
                 slot: 'name',
                 required: true,
                 size: 6,
