@@ -1,7 +1,7 @@
 const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
-const ASSET_PATH = process.env.MIX_APP_URL + '/';
+const ASSET_PATH = (process.env.MIX_APP_ENV === 'local'? process.env.MIX_DEV_APP_URL : process.env.MIX_APP_URL) + '/';
 
 module.exports = {
   output: {
