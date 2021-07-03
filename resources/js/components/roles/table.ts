@@ -16,14 +16,14 @@ export default [
   {
     name: 'Slug',
     dbName: 'name',
-    class: 'd-table-cell',
+    class: "d-none d-md-table-cell",
     type: '',
     orderable: true
   },
   {
     name: 'Utenti',
     dbName: 'users',
-    class: 'd-none d-lg-table-cell',
+    class: "d-table-cell",
     type: 'avatar-stack',
     orderable: false
   },

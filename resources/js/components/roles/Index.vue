@@ -29,8 +29,8 @@ import Filter from "$types/Filter";
 import Role from '$types/entities/Role';
 import roleTable from '$components/roles/table'
 import { AxiosResponse } from "axios";
-import ListPage from "$components/common/Pages/ListPage.vue";
-import PageHeader from "$components/common/Pages/PageHeader.vue";
+const ListPage = () =>  import(/* webpackPrefetch: true */ "$components/common/Pages/ListPage.vue");
+const PageHeader = () =>  import(/* webpackPrefetch: true */ "$components/common/Pages/PageHeader.vue");
 import { emitter } from "../../services/EventBus";
 import Roles from "$api/Roles";
 
