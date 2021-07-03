@@ -1,5 +1,5 @@
 {
-    "name": "maura",
+    "name": "app",
     "private": true,
     "scripts": {
         "dev": "mix",

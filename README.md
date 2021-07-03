@@ -28,6 +28,10 @@ artisan migrate:fresh --seed
 ### Frontend
 Install dependency:
 ```
+rm .package-lock.json
+sed -i'' -e 's/"name": "app",/"name": "[NEW_APP_NAME]",/g' .env
+```
+```
 npm install
 ```
 Build dev assets:
