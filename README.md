@@ -26,11 +26,12 @@ artisan migrate:fresh --seed
 ```
 
 ### Frontend
-Install dependency:
+Remove package-lock json relative to scaffold and set app's name:
 ```
 rm .package-lock.json
 sed -i'' -e 's/"name": "app",/"name": "[NEW_APP_NAME]",/g' .env
 ```
+Install dependency:
 ```
 npm install
 ```
