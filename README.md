@@ -1,5 +1,17 @@
 # Installation
 
+### Basic Assets
+Create icons for the site(using: https://www.favicon-generator.org/):
+
+Create folder icon and image inside public:
+```
+cd [PROJECT_FOLDER]
+cd public
+mkdir icon images
+```
+
+Insert generated icons in icon's folder and logo.png in images.
+
 ### Cleaning
 Clean the repo history from scaffold's one:
 ```
@@ -7,10 +19,14 @@ cd [PROJECT_FOLDER]
 rm -rf .git
 rm package-lock.json
 ```
-Start git flow init support for:
+Start git flow support:
 ```
 git init
 git flow init
+git add --all
+git commit -m"init"
+git remote add origin https://github.com/user/repo
+git push -u origin develop
 ```
 ### Tls support
 Get tls support(run in project folder):
@@ -64,26 +80,64 @@ npm run dev || npm run watch
 ```
 
 # Production
-Turn off debug mode:
+Turn off debug mode and change environment:
 ```
 sed -i '' -e 's|APP_DEBUG=true|APP_DEBUG=false|g' .env
+sed -i '' -e 's|MIX_APP_ENV=local|MIX_APP_ENV=production|g' .env
 ```
 Update database config:
 ```
-# Run only if [DB_URL] different than localhost
+# Run only if [DB_URL] differs from localhost
 sed -i '' -e 's|DB_HOST=127.0.0.1|DB_HOST=[DB_HOST]|g' .env
-sed -i '' -e 's|DB_DATABASE=app|DB_DATABASE=[DB_DATABASE]|g' .env
+sed -i '' -e 's|DB_DATABASE=[DB_LOCAL_DATABASE]|DB_DATABASE=[DB_DATABASE]|g' .env
 sed -i '' -e 's|DB_USERNAME=root|DB_USERNAME=[DB_USERNAME]|g' .env
 sed -i '' -e 's|DB_PASSWORD=|DB_PASSWORD=[DB_PASSWORD]|g' .env
 ```
 Build assets:
 ```
+composer install --optimize-autoloader --no-dev
 npm run production
 ```
+After asset building paste the content of **manifest.json** at the top of **mix-manifest.json** with the necessary edit, for PWA support.
 
-## For VPS
+## VPS
 
-## For Shared Hosting
+## Shared Hosting
+
+### Prepare assets
+Clean bootstrap cache in `bootstrap` folder
+
+Run:
+```
+artisan route:cache
+artisan view:cache
+# you need to replace all the local paths 
+# to the server paths if you cache the config
+artisan config:cache
+```
+
+### DB Copy
+Make a dump of the local database:
+```
+mysqldump -u root --databases [DATABASE_NAME] > db.sql 
+```
+
+Rename all the occurrencies of the local database with the new one if differs.
+
+Then restore the dump on the server database, or if you can connect externally to the server database run `artisan migrate fresh --seed` with the db credentials inserted in the `.env` file.
+
+### Folders Copy
+The files and folders' structure you need to upload to the hoster:
+
+![Folder structure](.shared_hosting/folder.png)
+
+Upload the folders like in the image above.
+
+Then copy the content of the public's folder in the root of the site **except for the `index.php` and `.htaccess` files** that you'll find in the `.shared_hosting` folder of this repo.
+
+Upload `filesystems.php` from `.shared_hosting` to the `config` folder on the hosting.
+
+Upload `AppServiceProvider.php` from `.shared_hosting` to the `app/Providers` folder on the hosting.
 
 
 ## About Scaffold
