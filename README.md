@@ -1,6 +1,43 @@
+# Installation
+
+### Backend
+Install dependency:
+```
+composer install
+```
+Init app's configuration:
+```
+cp .env.example .env
+sed -i'' -e 's/APP_NAME=App/APP_NAME=[NEW_APP_NAME]/g' .env
+sed -i'' -e 's/MIX_APP_URL=http://app/MIX_APP_URL=http://[APP_FOLDER]/g' .env
+sed -i'' -e 's/DB_DATABASE=app/DB_DATABASE=[NEW_DATABASE_NAME/g' .env
+```
+Generate app's key:
+```
+artisan key:generate
+```
+Link app's storage:
+```
+artisan storage:link
+```
+Run default migration for users and roles:
+```
+artisan migrate:fresh --seed
+```
+
+### Frontend
+Install dependency:
+```
+npm install
+```
+Build dev assets:
+```
+npm run dev || npm run watch
+```
+
 ## About Scaffold
 
-This scaffold is intended to improve the speed of the creation of a controle panel.
+This scaffold is intended to improve the speed of the creation of a control panel.
 
 The Vue principal components are in the common folder:
 - common
