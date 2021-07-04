@@ -9,6 +9,7 @@ use App\Actions\Fortify\UpdateUserProfileInformation;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Contracts\LoginResponse;
+use Laravel\Fortify\Contracts\RegisterResponse;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -29,10 +30,15 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(LoginResponse::class, new class implements LoginResponse {
             public function toResponse($request)
             {
-                return redirect('/', 302, [], true);
+                return redirect('/dashboard', 302, [], true);
             }
         });
-
+        $this->app->instance(RegisterResponse::class, new class implements RegisterResponse {
+            public  function toResponse($request)
+            {
+                return redirect('/email/verify', 302, []);
+            }
+        });
     }
 
     /**
