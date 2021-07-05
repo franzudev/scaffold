@@ -84,6 +84,7 @@ const LocationPicker = () => import("$common/LocationPicker/LocationPicker.vue")
 import FormInput from "$common/Forms/components/FormInput.vue";
 const FormEditor = () => import("$common/Forms/components/FormEditor.vue");
 import FormDownload from "$common/Forms/components/FormDownload.vue";
+import { InputConfigObject } from "$types/InputConfig";
 
 @Component({
     name: 'FormGenerator',
@@ -106,7 +107,7 @@ export default class FormGenerator extends Vue {
         })
     }) pickerOptions!: Object
 
-    public userInputs: Object = {}
+    public userInputs: InputConfigObject = {}
     public entity: Object = {}
 
     @Watch('entity', {

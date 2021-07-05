@@ -48,6 +48,7 @@ import Role from "$types/entities/Role";
 import { SweetAlertResult } from "sweetalert2";
 import FormGenerator from "$components/common/Forms/FormGenerator.vue";
 import FormActions from "$components/common/Forms/FormActions.vue";
+import { InputConfigObject } from "$types/InputConfig";
 
 @Component({
     components: { FormActions, FormGenerator }
@@ -72,7 +73,7 @@ export default class Create extends Vue {
         return location.href.includes('create')
     }
 
-    public get inputs() {
+    public get inputs(): InputConfigObject {
         return {
             "Username": {
                 type: 'text',
