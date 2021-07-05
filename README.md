@@ -140,6 +140,18 @@ Upload `filesystems.php` from `.shared_hosting` to the `config` folder on the ho
 Upload `AppServiceProvider.php` from `.shared_hosting` to the `app/Providers` folder on the hosting.
 
 
+# Table.ts
+
+### Cell types:
+
+- "avatar"
+- "avatar-stack"
+- "progress-bar"
+- "date"
+- "actions"
+- "array"
+- "long-text"
+
 ## About Scaffold
 
 This scaffold is intended to improve the speed of the creation of a control panel.
