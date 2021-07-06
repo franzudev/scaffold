@@ -30,6 +30,7 @@ module.exports = {
       $tables: path.resolve(__dirname, "resources/js/tables"),
       $api: path.resolve(__dirname, "resources/js/services/api/endpoints"),
       $types: path.resolve(__dirname, "resources/js/@types"),
+      $services: path.resolve(__dirname, "resources/js/services"),
     },
     extensions: ["*", ".js", ".jsx", ".vue", ".ts", ".tsx"],
   }
