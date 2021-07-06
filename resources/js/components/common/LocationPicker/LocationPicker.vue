@@ -167,7 +167,7 @@ export default class LocationPicker extends Vue {
     margin: 10px;
     width: 30%;
     min-width: 300px;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-size: 15px;
     font-weight: 300;
     text-overflow: ellipsis;

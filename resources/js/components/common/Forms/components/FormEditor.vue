@@ -4,7 +4,6 @@
     <vue-editor
       v-model="entity[slot]"
       :class="{'error_class': errors[slot]}"
-      :editor-toolbar="customToolbar"
     />
     <small
       v-if="errors[slot]"

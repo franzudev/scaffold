@@ -10,6 +10,7 @@ import VueContentPlaceholders from 'vue-content-placeholders';
 import Vuex from 'vuex';
 import Notify from "$mixins/Notify";
 import Vue from "vue";
+import { emitter } from "$services/EventBus";
 const moment = require('moment');
 require('moment/locale/it');
 
@@ -31,6 +32,16 @@ const store = new Vuex.Store({});
 require('./components/components_loader');
 
 Vue.prototype.$host = process.env.MIX_APP_ENV === 'production'? process.env.MIX_APP_URL : process.env.MIX_DEV_APP_URL
+
+Vue.prototype.$bus = emitter;
+
+Vue.prototype.$screen = Vue.observable({
+    width: window.innerWidth
+});
+
+window.addEventListener('resize', () => {
+    Vue.prototype.$screen.width = window.innerWidth;
+});
 
 const app = new Vue({
     el: '#app',

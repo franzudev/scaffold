@@ -8,7 +8,6 @@
         <filterable-head
           :column="column"
           :orderable="column.orderable"
-          :sort="sort"
           :filters="filters"
         />
       </template>
@@ -28,6 +27,5 @@ import FilterableHead from "$components/common/Table/components/FilterableHead.v
 export default class TableHead extends Vue {
     @Prop({ required: true }) columns!: Object[]
     @Prop({ required: true }) filters!: Object
-    @Prop({ required: false }) sort?: Function
 }
 </script>

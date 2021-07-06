@@ -34,8 +34,8 @@ export default [
     icons: [
       {
         class: 'fas fa-pencil-alt',
-        title: 'Modifica Corsista',
-        event: 'update-user'
+        title: 'Modifica Utente',
+        event: 'update-users'
       },
       // {
       //   class: 'fas fa-graduation-cap',

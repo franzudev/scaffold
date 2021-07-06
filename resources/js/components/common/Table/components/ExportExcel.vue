@@ -5,8 +5,14 @@
       class="btn btn-outline-primary"
       @click="exportExcel"
     >
-      <i class="fas fa-spinner fa-spin" v-if="exporting"></i>
-      <i v-else class="fas fa-file-excel"></i>
+      <i
+        v-if="exporting"
+        class="fas fa-spinner fa-spin"
+      />
+      <i
+        v-else
+        class="fas fa-file-excel"
+      />
     </button>
   </div>
 </template>

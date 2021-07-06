@@ -6,7 +6,7 @@
       href="#"
       class="text-muted text-decoration-none hover-action ml-1"
       :title="icon.title"
-      @click="bus.emit(icon.event, entityId)"
+      @click="$bus.emit(icon.event, entityId)"
     >
       <i :class="icon.class" />
     </a>
@@ -15,7 +15,6 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { emitter } from "../../../../../services/EventBus";
 
 @Component({
     name: 'action-table-cell'
@@ -23,10 +22,6 @@ import { emitter } from "../../../../../services/EventBus";
 export default class ActionTableCell extends Vue {
     @Prop({ required: true }) cell!: Object
     @Prop({ required: true }) entityId!: number
-
-    get bus() {
-        return emitter
-    }
 }
 </script>
 

@@ -79,19 +79,19 @@ import FormMultiselect from "$common/Forms/components/FormMultiselect.vue";
 import FormRadio from "$common/Forms/components/FormRadio";
 import FormCheckbox from "$common/Forms/components/FormCheckbox.vue";
 import FormImage from "$common/Forms/components/FormImage.vue";
-const FormLocationPicker = () => import("$common/Forms/components/FormLocationPicker.vue");
-const LocationPicker = () => import("$common/LocationPicker/LocationPicker.vue");
 import FormInput from "$common/Forms/components/FormInput.vue";
-const FormEditor = () => import("$common/Forms/components/FormEditor.vue");
 import FormDownload from "$common/Forms/components/FormDownload.vue";
 import { InputConfigObject } from "$types/InputConfig";
+const FormLocationPicker = () => import("$common/Forms/components/FormLocationPicker.vue");
+const LocationPicker = () => import("$common/LocationPicker/LocationPicker.vue");
+const FormEditor = () => import("$common/Forms/components/FormEditor.vue");
 
 @Component({
     name: 'FormGenerator',
     components: { FormDownload, FormEditor, FormInput, FormLocationPicker, FormImage, FormCheckbox, FormRadio, FormMultiselect, LocationPicker }
 })
 export default class FormGenerator extends Vue {
-    @Prop({ required: true }) inputs!: Object
+    @Prop({ required: true }) inputs!: InputConfigObject
     @Prop({ required: true }) value!: Object
     @Prop({ required: true }) errors!: Array<Object>
     @Prop({ required: true }) isNew!: Array<Object>

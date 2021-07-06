@@ -31,7 +31,6 @@ import roleTable from '$components/roles/table'
 import { AxiosResponse } from "axios";
 const ListPage = () =>  import(/* webpackPrefetch: true */ "$components/common/Pages/ListPage.vue");
 const PageHeader = () =>  import(/* webpackPrefetch: true */ "$components/common/Pages/PageHeader.vue");
-import { emitter } from "../../services/EventBus";
 import Roles from "$api/Roles";
 
 @Component({
@@ -45,12 +44,12 @@ export default class IndexRole extends Vue {
         ['name', 'Ruolo'],
     ]
 
-    get emit() {
-        return emitter
+    created() {
+        this.$bus.on('update-role', this.editRole as any)
     }
 
-    created() {
-        this.emit.on('update-role' as any, this.editRole as any)
+    destroyed() {
+        this.$bus.off('update-role', this.editRole as any)
     }
 
     getEntity(filters: Filter) {

@@ -1,3 +1,3 @@
-import mitt from 'mitt'
+import mitt, { Emitter } from 'mitt'
 
-export const emitter = mitt();
+export const emitter: Emitter<any> = mitt();

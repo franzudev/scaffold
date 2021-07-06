@@ -16,7 +16,7 @@
             <a
               class="page-link"
               href="#"
-              @click.prevent="changePage(filters.pagination.current_page - 1)"
+              @click.prevent="$bus.emit('change-page', filters.pagination.current_page - 1)"
             ><i
               class="fas fa-angle-left"
             /></a>
@@ -35,7 +35,7 @@
               v-else
               class="page-link"
               href="#"
-              @click.prevent="changePage(page)"
+              @click.prevent="$bus.emit('change-page', page)"
             >{{ page }}</a>
           </li>
           <li
@@ -45,7 +45,7 @@
             <a
               class="page-link"
               href="#"
-              @click.prevent="changePage(filters.pagination.current_page + 1)"
+              @click.prevent="$bus.emit('change-page', filters.pagination.current_page + 1)"
             ><i
               class="fas fa-angle-right"
             /></a>
@@ -65,6 +65,5 @@ import Filter from "$types/Filter";
 })
 export default class FiltersPagination extends Vue {
     @Prop({ required: true }) filters!: Filter
-    @Prop({ required: true }) changePage!: Function
 }
 </script>

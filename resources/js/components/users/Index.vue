@@ -35,7 +35,6 @@ import { AxiosResponse } from "axios";
 const ListPage = () => import(/* webpackPrefetch: true */ "$components/common/Pages/ListPage.vue")
 const PageHeader = () => import(/* webpackPrefetch: true */ "$components/common/Pages/PageHeader.vue");
 import Filter from '$types/Filter';
-import { emitter } from "../../services/EventBus";
 import User from "$types/entities/User";
 import TCell from "$types/TableCell";
 
@@ -62,16 +61,16 @@ export default class UsersIndex extends Vue {
         return [
             u.username,
             u.email,
-            (this as any).$moment(u.created_at).format("LL")
+            this.$moment(u.created_at).format("LL")
         ]
     }
 
     created() {
-        this.emit.on('update-user' as any, this.editUser as any)
+        this.$bus.on('update-users', this.editUser as any)
     }
 
-    get emit() {
-        return emitter
+    destroyed() {
+        this.$bus.off('update-users', this.editUser as any)
     }
 
     public getEntity(filters: Filter) {

@@ -19,6 +19,7 @@
         v-for="(column, key) in columns"
         :key="key"
         :class="column.class"
+        @click="updateEntity"
       >
         <slot
           name="column"
@@ -40,6 +41,12 @@ import { Prop, Component, Vue } from 'vue-property-decorator'
 export default class TableRow extends Vue {
     @Prop({ required: true }) columns!: Object[]
     @Prop({ required: true }) head!: boolean
-    // @Prop({required: false}) editEntity?: Function
+    @Prop({ required: false }) entityName!: string
+
+    public updateEntity() {
+        if (this.$screen.width >= 768 || !this.entityName)
+            return ;
+        this.$bus.emit(`update-${this.entityName}`, this.$vnode.key)
+    }
 }
 </script>
