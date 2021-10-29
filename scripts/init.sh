@@ -22,9 +22,9 @@ sed -i '' -e "s/DB_DATABASE=app/DB_DATABASE=${PWD##*/}/g" .env
 
 mysql -uroot -e "CREATE DATABASE ${PWD##*/};"
 
-artisan key:generate
-artisan storage:link
-artisan migrate:fresh --seed
+php artisan key:generate
+php artisan storage:link
+php artisan migrate:fresh --seed
 
 sed -i '' -e "s/\"name\": \"app\",/\"name\": \"${PWD##*/}\",/g" package.json
 npm install
