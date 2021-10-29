@@ -16,7 +16,8 @@
       "$components/*": ["resources/js/components/*"],
       "$common/*": ["resources/js/components/common/*"],
       "$tables/*": ["resources/js/tables/*"],
-      "$types/*": ["resources/js/@types/*"]
+      "$types/*": ["resources/js/@types/*"],
+      "$services/*": ["resources/js/services/*"]
     },
     "lib": [
       "esnext",

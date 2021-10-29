@@ -1,13 +1,28 @@
 <template>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <select class="custom-select" id="inputGroupSelect01" v-model="type">
-                <option v-for="option in options" :value="option[0]">{{option[1]}}</option>
-            </select>
-        </div>
-        <input type="text" class="form-control" placeholder="Ricerca" v-model.trim="value"
-               @keyup.enter="$emit('filter')">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <select
+        id="inputGroupSelect01"
+        v-model="type"
+        class="custom-select"
+      >
+        <option
+          v-for="(option, key) in options"
+          :key="key"
+          :value="option[0]"
+        >
+          {{ option[1] }}
+        </option>
+      </select>
     </div>
+    <input
+      v-model.trim="value"
+      type="text"
+      class="form-control"
+      placeholder="Ricerca"
+      @keyup.enter="$emit('filter')"
+    >
+  </div>
 </template>
 
 <script lang="ts">

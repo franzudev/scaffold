@@ -27,6 +27,11 @@
     :entity="entity"
     :cell="cell"
   />
+  <text-table-cell
+    v-else-if="cell.type === 'long-text'"
+    :entity="entity"
+    :cell="cell"
+  />
   <span v-else>{{ cellValue }}</span>
 </template>
 
@@ -39,10 +44,12 @@ import ActionTableCell from "$components/common/Table/components/Cells/ActionTab
 import ArrayTableCell from "$components/common/Table/components/Cells/ArrayTableCell.vue";
 import AvatarStackTableCell from "$components/common/Table/components/Cells/AvatarStackTableCell.vue";
 import ProgressTableCell from "$components/common/Table/components/Cells/ProgressTableCell.vue";
+import TextTableCell from "$common/Table/components/Cells/TextTableCell.vue";
 
 @Component({
     name: 'table-cell',
     components: {
+        TextTableCell,
         ProgressTableCell,
         AvatarStackTableCell,
         ArrayTableCell,

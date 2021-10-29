@@ -88,7 +88,7 @@ class UserController extends Controller
         try{
             $user->delete();
         } catch (\Exception $exception) {
-            return abort(500);
+            return response('Can\'t delete user', 500);
         }
 
         Storage::deleteDirectory($userDir);

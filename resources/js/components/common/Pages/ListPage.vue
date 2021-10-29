@@ -5,8 +5,6 @@
       <search-header
         :filters="filters"
         :search-options="searchOptions"
-        :change-size="changeSize"
-        :filter="filter"
       >
         <template #extra-filters>
           <export-excel
@@ -22,17 +20,14 @@
       </search-header>
       <my-table
         :columns="columns"
-        :sort="sort"
         :loading="loading"
         :filters="filters"
         :entities="entities"
-        :edit-entity="editEntity"
-        :change-page="changePage"
+        :entity-name="entityName"
       />
       <filters-pagination
         v-if="!loading && filters.pagination.total > 0"
         :filters="filters"
-        :change-page="changePage"
       />
       <no-entities
         v-if="!loading && !entities.length > 0"
@@ -52,7 +47,7 @@ import { AxiosError } from "axios";
 import SearchHeader from "$components/common/Search/SearchHeader.vue";
 import MyTable from "$components/common/Table/Index.vue";
 import ExportExcel from "$components/common/Table/components/ExportExcel.vue";
-import FiltersPagination from "$components/common/Table/components/FiltersPagination.vue";
+const FiltersPagination = () => import("$components/common/Table/components/FiltersPagination.vue");
 
 @Component({
     name: 'list-page',
@@ -70,7 +65,6 @@ export default class ListPage extends mixins(Filter) {
     @Prop({ required: true }) entityName!: string
     @Prop({ required: true }) entityNewButton!: string
     @Prop({ required: true }) retrieveEntity!: Function
-    @Prop({ required: true }) editEntity!: Function
     @Prop({ default: () => [] }) excelHeader!: string[]
     @Prop({ default: () => null }) excelData!: Function
     @Prop({ default: () => false }) persistSearch!: boolean
@@ -88,11 +82,22 @@ export default class ListPage extends mixins(Filter) {
     }
 
     public created() {
+        this.$bus.on('filter', this.filter)
+        this.$bus.on('sort', this.sort as any)
+        this.$bus.on('change-page', this.changePage as any)
+        this.$bus.on('change-size', this.changeSize as any)
         try {
             this.initFilters(this.filtersKey, this.searchOptions[0][0])
         } catch (e) {
             this.initFilters(this.filtersKey)
         }
+    }
+
+    public destroyed() {
+        this.$bus.off('filter', this.filter)
+        this.$bus.off('sort', this.sort as any)
+        this.$bus.off('change-page', this.changePage as any)
+        this.$bus.off('change-size', this.changeSize as any)
     }
 
     public getEntity() {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Providers\RouteServiceProvider;
 use Closure;
 
 class CPanelAccess
@@ -17,7 +18,6 @@ class CPanelAccess
     {
         if (auth()->user()->hasRole('admin'))
             return $next($request);
-        else
-            return abort(404);
+        return redirect(RouteServiceProvider::HOME);
     }
 }

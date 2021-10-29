@@ -37,25 +37,21 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     <script>
-      window.Laravel = {!! json_encode([
-        'csrfToken' => csrf_token()
-      ]) !!};
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token()
+        ]) !!};
     </script>
 
     <script>
-    // Check that service workers are supported
-    if ('serviceWorker' in navigator) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                // Registration was successful
-            }, function(err) {
-                // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
             });
-        });
-    }
+        }
     </script>
 
     <!-- Fonts -->
@@ -63,26 +59,25 @@
     <link rel="prefetch" href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-{{--    <link href="{{ mix('css/app.css') }}" rel="stylesheet" media="all">--}}
+    {{--    <link href="{{ mix('css/app.css') }}" rel="stylesheet" media="all">--}}
     <link rel="preload" href="{{ mix('css/app.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 @role('admin')
 <body class="app header-fixed sidebar-fixed sidebar-lg-show">
 @endrole
-{{-- TODO sidebar--}}
 @role('user')
 <body class="app header-fixed">
 @endrole
-    <div id="app">
-        @include('layouts.header')
-        <div class="app-body">
-            @role('admin')
-                @include('layouts.sidebar')
-            @endrole
-            <main class="main animated fadeIn">
-              @yield('content')
-            </main>
-        </div>
+<div id="app">
+    @include('layouts.header')
+    <div class="app-body">
+        @role('admin')
+        @include('layouts.sidebar')
+        @endrole
+        <main class="main animated fadeIn">
+            @yield('content')
+        </main>
     </div>
+</div>
 </body>
 </html>

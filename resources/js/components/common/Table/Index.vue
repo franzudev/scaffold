@@ -2,15 +2,13 @@
   <table class="table table-hover">
     <table-head
       :columns="columns"
-      :sort="sort"
       :filters="filters"
     />
     <table-body
       :entities="entities"
       :columns="columns"
       :loading="loading"
-      :sort="sort"
-      :edit-entity="editEntity"
+      :entity-name="entityName"
     />
   </table>
 </template>
@@ -32,7 +30,6 @@ export default class MyTable extends Vue {
     @Prop({ required: true }) columns!: Object[]
     @Prop({ required: true }) entities!: Object[]
     @Prop({ required: true }) filters!: Object
-    @Prop({ required: true }) sort!: Function
-    @Prop({ required: true }) editEntity!: Function
+    @Prop({ required: true }) entityName!: string
 }
 </script>

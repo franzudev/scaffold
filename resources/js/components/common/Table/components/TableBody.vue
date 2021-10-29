@@ -5,7 +5,7 @@
       :key="entity.id"
       :columns="columns"
       :head="false"
-      :edit-entity="editEntity"
+      :entity-name="entityName"
     >
       <template #column="{column}">
         <table-cell
@@ -38,8 +38,7 @@ import TableRow from "$components/common/Table/components/TableRow.vue";
 export default class TableBody extends Vue {
     @Prop({ required: true }) entities!: Object[]
     @Prop({ required: true }) columns!: Object[]
-    @Prop({ required: true }) editEntity!: Function
-    @Prop({ required: true }) sort?: Function
+    @Prop({ required: true }) entityName!: string
     @Prop({ required: true }) loading!: boolean
 }
 </script>

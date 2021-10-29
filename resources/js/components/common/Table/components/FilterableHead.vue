@@ -2,7 +2,7 @@
   <a
     v-if="column.orderable"
     href="#"
-    @click.prevent="sort(column.dbName)"
+    @click.prevent="$bus.emit('sort', column.dbName)"
   >
     {{ column.name.charAt(0).toUpperCase() + column.name.slice(1) }}
     <i
@@ -26,9 +26,8 @@ import TCell from "$types/TableCell";
 export default class FilterableHead extends Vue {
     @Prop({ required: true }) column!: TCell
     @Prop({ required: true }) filters!: Filter
-    @Prop({ required: false }) sort?: Function
 
-    get resClass() {
+    public get resClass() {
         return {
             'fa-long-arrow-alt-down': this.filters.orderBy.column == this.column.dbName && this.filters.orderBy.direction == 'asc',
             'fa-long-arrow-alt-up': this.filters.orderBy.column == this.column.dbName && this.filters.orderBy.direction == 'desc'

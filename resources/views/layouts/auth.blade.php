@@ -30,19 +30,19 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
-    <script>
-    if ('serviceWorker' in navigator ) {
-      window.addEventListener('load', function() {
-        /*navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          // Registration was successful
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          // registration failed :(
-          console.log('ServiceWorker registration failed: ', err);
-        });*/
-      });
-    }
-    </script>
+    <!--    <script>
+        if ('serviceWorker' in navigator ) {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+              // Registration was successful
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+              // registration failed :(
+              console.log('ServiceWorker registration failed: ', err);
+            });
+          });
+        }
+        </script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -52,12 +52,12 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app" class="app flex-row align-items-center bg-custom-primary">
-        <div class="container">
-            <div class="row justify-content-center">
-                @yield('auth')
-            </div>
+<div id="app" class="app flex-row align-items-center bg-custom-primary">
+    <div class="container">
+        <div class="row justify-content-center">
+            @yield('auth')
         </div>
     </div>
+</div>
 </body>
 </html>
