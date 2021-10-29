@@ -1,5 +1,10 @@
 # Installation
 
+### TL/DR;
+```
+./scripts/init.sh
+```
+
 ### Basic Assets
 Create icons for the site(using: https://www.favicon-generator.org/):
 
@@ -80,6 +85,10 @@ npm run dev || npm run watch
 ```
 
 # Production
+### TL/DR;
+```
+./scripts/production.sh DB_HOST DATABASE DBUSER DBPASS
+```
 Turn off debug mode and change environment:
 ```
 sed -i '' -e 's|APP_DEBUG=true|APP_DEBUG=false|g' .env
