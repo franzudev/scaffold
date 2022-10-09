@@ -302,3 +302,5 @@ resources/js/components/Uploader/ParentUploader.js
 /public/svg/
 /public/images/
 icons/
+.env.portainer
+.env.example
