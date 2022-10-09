@@ -46,7 +46,7 @@ composer install
 ```
 Init app's configuration:
 ```
-cp .env.example .env
+cp .env.dev .env
 sed -i '' -e 's/APP_NAME=App/APP_NAME=[NEW_APP_NAME]/g' .env
 # Set production url
 sed -i '' -e 's|MIX_APP_URL=https://app.test|MIX_APP_URL=https://[SITE_URL]|g' .env
