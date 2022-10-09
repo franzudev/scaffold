@@ -53,6 +53,8 @@ Homestead.json
 .DS_Store
 .AppleDouble
 .LSOverride
+.env.example
+.env.portainer
 
 # Icon must end with two \r
 Icon
@@ -300,3 +302,5 @@ resources/js/components/Uploader/ParentUploader.js
 /public/svg/
 /public/images/
 icons/
+.env.portainer
+.env.example
