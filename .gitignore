@@ -53,6 +53,8 @@ Homestead.json
 .DS_Store
 .AppleDouble
 .LSOverride
+.env.example
+.env.portainer
 
 # Icon must end with two \r
 Icon
